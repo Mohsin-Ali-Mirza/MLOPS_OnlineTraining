@@ -14,8 +14,8 @@ class Flower(BaseModel):
     petalWidth: float
 
 def load_models():
-    pickle_file_path = "xgb_model.pkl"
-    joblib_file_path = "xgb_model.joblib"
+    pickle_file_path = "rf_model.pkl"
+    joblib_file_path = "rf_model.joblib"
 
     with open(pickle_file_path,"rb") as f:
         pickle_model = pickle.load(f)
