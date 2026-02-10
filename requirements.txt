@@ -1,0 +1,6 @@
+scikit-learn 
+streamlit 
+fastapi 
+uvicorn 
+joblib 
+pickle5 
