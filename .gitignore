@@ -1,0 +1,10 @@
+# Ignore python cache everywhere
+**/__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+.venv/
+venv/
+.env/
+project_1.ipynb
+dataset.csv
