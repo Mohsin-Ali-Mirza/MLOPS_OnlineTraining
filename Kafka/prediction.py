@@ -5,8 +5,13 @@ import joblib
 from joblib import load
 import pickle
 import numpy as np
+import redis
+
 
 app = FastAPI()
+
+redis_client = redis.Redis(host="localhost", port=6379, decode_responses=True)
+PREDICTION_COUNTER_KEY = "prediction_count"
 
 class Flower(BaseModel):
     sepalLength : float
@@ -15,8 +20,8 @@ class Flower(BaseModel):
     petalWidth: float
 
 def load_models():
-    pickle_file_path = "rf_model.pkl"
-    joblib_file_path = "rf_model.joblib"
+    pickle_file_path = "./models/rf_model.pkl"
+    joblib_file_path = "./models/rf_model.joblib"
 
     with open(pickle_file_path,"rb") as f:
         pickle_model = pickle.load(f)
@@ -30,11 +35,16 @@ async def predict(item: Flower):
     data_inference = np.array([[item.sepalLength,item.sepalWidth,item.petalLength,item.petalWidth]])
     pickle_model, joblib_model = load_models()
 
-
+    count = redis_client.incr(PREDICTION_COUNTER_KEY)
     predict_pickle = pickle_model.predict(data_inference)[0]
     predict_joblib = joblib_model.predict(data_inference)[0]
     return {"Prediction_Pickle":int(predict_pickle),
-            "Prediction_Joblib":int(predict_joblib)}
+            "Prediction_Joblib":int(predict_joblib),
+             "prediction_count": count}
+
+@app.post('/train')
+async def train(item: Flower):
+    pass
 
 
 @app.get("/")
