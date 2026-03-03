@@ -60,6 +60,13 @@ streamlit run frontend.py
 
 The frontend will be available at `http://localhost:8501`
 
+### Kafka
+```bash
+cd Kafka
+docker compose up
+
+streamlit run frontend.py
+```
 
 ## 👤 Authors
 
