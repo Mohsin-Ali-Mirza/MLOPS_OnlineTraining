@@ -1,0 +1,97 @@
+2026-03-05 15:14:00,411 | INFO     | app | Kafka consumer started and listening
+2026-03-05 15:14:01,932 | INFO     | app | Root endpoint hit
+2026-03-05 15:14:15,940 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:14:55,115 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:45,406 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:45,434 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:45,460 | INFO     | app | Prediction successful
+2026-03-05 15:15:48,597 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:48,625 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:48,635 | INFO     | app | Prediction successful
+2026-03-05 15:15:48,780 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:48,807 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:48,816 | INFO     | app | Prediction successful
+2026-03-05 15:15:49,008 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:49,034 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:49,043 | INFO     | app | Prediction successful
+2026-03-05 15:15:49,225 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:49,251 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:49,264 | INFO     | app | Prediction successful
+2026-03-05 15:15:49,385 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:49,411 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:49,420 | INFO     | app | Prediction successful
+2026-03-05 15:15:49,738 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:49,765 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:49,775 | INFO     | app | Prediction successful
+2026-03-05 15:15:49,996 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:50,022 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:50,033 | INFO     | app | Prediction successful
+2026-03-05 15:15:50,254 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:15:50,280 | INFO     | app | Models loaded successfully
+2026-03-05 15:15:50,291 | INFO     | app | Prediction successful
+2026-03-05 15:15:50,291 | INFO     | app | Threshold reached. Publishing retrain event to Kafka.
+2026-03-05 15:37:59,964 | INFO     | app | Kafka consumer started and listening
+2026-03-05 15:38:58,701 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:38:58,766 | INFO     | app | Models loaded successfully
+2026-03-05 15:38:58,790 | INFO     | app | Prediction successful
+2026-03-05 15:39:01,846 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:01,875 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:01,886 | INFO     | app | Prediction successful
+2026-03-05 15:39:02,145 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:02,174 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:02,185 | INFO     | app | Prediction successful
+2026-03-05 15:39:02,830 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:02,861 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:02,873 | INFO     | app | Prediction successful
+2026-03-05 15:39:03,116 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:03,144 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:03,155 | INFO     | app | Prediction successful
+2026-03-05 15:39:03,350 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:03,378 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:03,388 | INFO     | app | Prediction successful
+2026-03-05 15:39:07,775 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:07,804 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:07,824 | INFO     | app | Prediction successful
+2026-03-05 15:39:08,607 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:08,636 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:08,647 | INFO     | app | Prediction successful
+2026-03-05 15:39:09,292 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:09,321 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:09,332 | INFO     | app | Prediction successful
+2026-03-05 15:39:09,332 | INFO     | app | Threshold reached. Publishing retrain event to Kafka.
+2026-03-05 15:39:11,523 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:11,552 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:11,563 | INFO     | app | Prediction successful
+2026-03-05 15:39:13,369 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:13,399 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:13,410 | INFO     | app | Prediction successful
+2026-03-05 15:39:14,070 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:14,098 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:14,109 | INFO     | app | Prediction successful
+2026-03-05 15:39:14,644 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:14,672 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:14,683 | INFO     | app | Prediction successful
+2026-03-05 15:39:15,113 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:15,140 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:15,150 | INFO     | app | Prediction successful
+2026-03-05 15:39:15,577 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:15,603 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:15,613 | INFO     | app | Prediction successful
+2026-03-05 15:39:16,004 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:16,029 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:16,042 | INFO     | app | Prediction successful
+2026-03-05 15:39:16,334 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:16,373 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:16,386 | INFO     | app | Prediction successful
+2026-03-05 15:39:16,662 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:16,694 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:16,707 | INFO     | app | Prediction successful
+2026-03-05 15:39:17,613 | INFO     | app | Prediction endpoint hit
+2026-03-05 15:39:17,639 | INFO     | app | Models loaded successfully
+2026-03-05 15:39:17,649 | INFO     | app | Prediction successful
+2026-03-05 15:39:17,649 | INFO     | app | Threshold reached. Publishing retrain event to Kafka.
+2026-03-05 15:39:17,655 | INFO     | app | Received retrain event from Kafka
+2026-03-05 15:39:17,656 | INFO     | app | Starting training process
+2026-03-05 15:39:17,834 | INFO     | app | Model trained successfully
+2026-03-05 15:39:17,867 | INFO     | app | Models saved to disk
+2026-03-05 15:39:17,868 | INFO     | app | Redis counter reset to 0 after training
