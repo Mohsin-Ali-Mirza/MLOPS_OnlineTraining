@@ -1,13 +1,15 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 from joblib import load, dump
 import pickle
 import numpy as np
-import redis
+import redis.asyncio as aioredis
+import redis as sync_redis
 import uvicorn
 import os
 import logging
 import threading
+import asyncio
 from confluent_kafka import Producer, Consumer
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
@@ -25,7 +27,9 @@ logger = logging.getLogger("app")
 
 app = FastAPI()
 
-redis_client = redis.Redis(host="localhost", port=6379, decode_responses=True)
+redis_client_async = aioredis.Redis(host="localhost", port=6379, decode_responses=True)
+redis_client_sync = sync_redis.Redis(host="localhost", port=6379, decode_responses=True)
+
 PREDICTION_COUNTER_KEY = "prediction_count"
 RETRAIN_THRESHOLD = 10
 KAFKA_BROKER = "localhost:9092"
@@ -35,6 +39,11 @@ PICKLE_MODEL_PATH = "./models/rf_model.pkl"
 JOBLIB_MODEL_PATH = "./models/rf_model.joblib"
 
 kafka_producer = Producer({"bootstrap.servers": KAFKA_BROKER})
+
+global_models = {
+    "pickle_model": None,
+    "joblib_model": None
+}
 
 class Flower(BaseModel):
     sepalLength: float
@@ -47,12 +56,11 @@ class TrainRequest(BaseModel):
     random_state: int = 42
 
 def load_models():
-    logger.debug("Loading models from disk")
+    logger.debug("Loading models from disk into memory cache")
     with open(PICKLE_MODEL_PATH, "rb") as f:
-        pickle_model = pickle.load(f)
-    joblib_model = load(JOBLIB_MODEL_PATH)
-    logger.info("Models loaded successfully")
-    return [pickle_model, joblib_model]
+        global_models["pickle_model"] = pickle.load(f)
+    global_models["joblib_model"] = load(JOBLIB_MODEL_PATH)
+    logger.info("Models loaded successfully into memory")
 
 def execute_training(test_size: float = 0.3, random_state: int = 42):
     logger.info("Starting training process")
@@ -77,10 +85,14 @@ def execute_training(test_size: float = 0.3, random_state: int = 42):
     dump(model, JOBLIB_MODEL_PATH)
     logger.info("Models saved to disk")
 
-    redis_client.set(PREDICTION_COUNTER_KEY, 0)
-    logger.info("Redis counter reset to 0 after training")
+    load_models()
     
     return len(X_train), len(X_test), list(iris.target_names)
+
+def _do_inference(data_inference):
+    predict_pickle = global_models["pickle_model"].predict(data_inference)[0]
+    predict_joblib = global_models["joblib_model"].predict(data_inference)[0]
+    return int(predict_pickle), int(predict_joblib)
 
 def kafka_consumer_worker():
     consumer = Consumer({
@@ -100,9 +112,12 @@ def kafka_consumer_worker():
 
         logger.info("Received retrain event from Kafka")
         execute_training()
+        redis_client_sync.set(PREDICTION_COUNTER_KEY, 0)
+        logger.info("Redis counter reset to 0 by background worker")
 
 @app.on_event("startup")
-def startup_event():
+async def startup_event():
+    await asyncio.to_thread(load_models)
     thread = threading.Thread(target=kafka_consumer_worker, daemon=True)
     thread.start()
 
@@ -110,26 +125,23 @@ def startup_event():
 async def predict(item: Flower):
     logger.info("Prediction endpoint hit")
     data_inference = np.array([[item.sepalLength, item.sepalWidth, item.petalLength, item.petalWidth]])
-    pickle_model, joblib_model = load_models()
+    
+    predict_pickle, predict_joblib = await asyncio.to_thread(_do_inference, data_inference)
 
-    redis_client.incr(PREDICTION_COUNTER_KEY)
-
-    predict_pickle = pickle_model.predict(data_inference)[0]
-    predict_joblib = joblib_model.predict(data_inference)[0]
-
-    prediction_count = int(redis_client.get(PREDICTION_COUNTER_KEY))
+    await redis_client_async.incr(PREDICTION_COUNTER_KEY)
+    prediction_count = int(await redis_client_async.get(PREDICTION_COUNTER_KEY))
     logger.info("Prediction successful")
 
     if prediction_count >= RETRAIN_THRESHOLD:
         logger.info("Threshold reached. Publishing retrain event to Kafka.")
-        kafka_producer.produce(RETRAIN_TOPIC, value="trigger_retrain")
-        kafka_producer.flush()
-        redis_client.set(PREDICTION_COUNTER_KEY, 0)
+        await asyncio.to_thread(kafka_producer.produce, RETRAIN_TOPIC, value="trigger_retrain")
+        await asyncio.to_thread(kafka_producer.flush)
+        await redis_client_async.set(PREDICTION_COUNTER_KEY, 0)
         prediction_count = 0
 
     return {
-        "Prediction_Pickle": int(predict_pickle),
-        "Prediction_Joblib": int(predict_joblib),
+        "Prediction_Pickle": predict_pickle,
+        "Prediction_Joblib": predict_joblib,
         "prediction_count": prediction_count,
     }
 
@@ -137,12 +149,17 @@ async def predict(item: Flower):
 async def train(request: TrainRequest):
     logger.info("Manual train endpoint hit")
     
-    raw_count_before = redis_client.get(PREDICTION_COUNTER_KEY)
+    raw_count_before = await redis_client_async.get(PREDICTION_COUNTER_KEY)
     verified_count_before = int(raw_count_before) if raw_count_before else 0
 
-    train_samples, test_samples, target_names = execute_training(request.test_size, request.random_state)
+    train_samples, test_samples, target_names = await asyncio.to_thread(
+        execute_training, request.test_size, request.random_state
+    )
 
-    raw_count_after = redis_client.get(PREDICTION_COUNTER_KEY)
+    await redis_client_async.set(PREDICTION_COUNTER_KEY, 0)
+    logger.info("Redis counter reset to 0 after manual training")
+
+    raw_count_after = await redis_client_async.get(PREDICTION_COUNTER_KEY)
     verified_count_after = int(raw_count_after) if raw_count_after else 0
 
     return {
@@ -160,7 +177,7 @@ async def train(request: TrainRequest):
 @app.get("/prediction-count")
 async def get_prediction_count():
     logger.info("Prediction count endpoint hit")
-    count = redis_client.get(PREDICTION_COUNTER_KEY)
+    count = await redis_client_async.get(PREDICTION_COUNTER_KEY)
     return {"prediction_count_in_redis": int(count) if count else 0}
 
 @app.get("/")
