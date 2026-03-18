@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from joblib import load, dump
-import pickle
 import numpy as np
 import redis.asyncio as aioredis
 import redis as sync_redis
@@ -10,10 +8,16 @@ import os
 import logging
 import threading
 import asyncio
+import mlflow
+import mlflow.sklearn
+from mlflow.tracking import MlflowClient
 from confluent_kafka import Producer, Consumer
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import pickle
+from joblib import load, dump
 
 logging.basicConfig(
     level=logging.INFO,
@@ -55,8 +59,25 @@ class TrainRequest(BaseModel):
     test_size: float = 0.3
     random_state: int = 42
 
+def prune_model_registry(model_name: str):
+    client = MlflowClient()
+    all_versions = client.search_model_versions(f"name='{model_name}'")
+    version_scores = []
+
+    for version in all_versions:
+        acc = version.tags.get("accuracy")
+        acc_val = float(acc) if acc else -float("inf")
+        version_scores.append((version.version, acc_val))
+
+    version_scores.sort(key=lambda x: x[1], reverse=True)
+    versions_to_delete = version_scores[2:]
+
+    for version_num, acc_val in versions_to_delete:
+        logger.info(f"Deleting model version {version_num} with accuracy {acc_val}")
+        client.delete_model_version(name=model_name, version=str(version_num))
+
 def load_models():
-    logger.debug("Loading models from disk into memory cache")
+    logger.info("Loading local models from disk into memory cache")
     with open(PICKLE_MODEL_PATH, "rb") as f:
         global_models["pickle_model"] = pickle.load(f)
     global_models["joblib_model"] = load(JOBLIB_MODEL_PATH)
@@ -75,19 +96,44 @@ def execute_training(test_size: float = 0.3, random_state: int = 42):
 
     model = RandomForestClassifier(random_state=random_state)
     model.fit(X_train, y_train)
-    logger.info("Model trained successfully")
+    
+    preds = model.predict(X_test)
+    acc = accuracy_score(y_test, preds)
 
     os.makedirs("./models", exist_ok=True)
-
     with open(PICKLE_MODEL_PATH, "wb") as f:
         pickle.dump(model, f)
-
     dump(model, JOBLIB_MODEL_PATH)
-    logger.info("Models saved to disk")
 
+    mlflow.set_experiment("Iris_Experiment")
+    with mlflow.start_run() as run:
+        mlflow.log_param("test_size", test_size)
+        mlflow.log_param("random_state", random_state)
+        mlflow.log_metric("accuracy", acc)
+        
+        model_info = mlflow.sklearn.log_model(
+            sk_model=model, 
+            artifact_path="model", 
+            registered_model_name="IrisModel"
+        )
+        
+        client = MlflowClient()
+        client.set_model_version_tag(
+            name="IrisModel", 
+            version=model_info.registered_model_version, 
+            key="accuracy", 
+            value=str(acc)
+        )
+
+    logger.info("Model logged and registered in MLflow")
+
+    prune_model_registry("IrisModel")
     load_models()
+
+    redis_client_sync.set(PREDICTION_COUNTER_KEY, 0)
+    logger.info("Redis counter reset to 0 after training")
     
-    return len(X_train), len(X_test), list(iris.target_names)
+    return len(X_train), len(X_test), list(iris.target_names), acc
 
 def _do_inference(data_inference):
     predict_pickle = global_models["pickle_model"].predict(data_inference)[0]
@@ -111,9 +157,7 @@ def kafka_consumer_worker():
             continue
 
         logger.info("Received retrain event from Kafka")
-        execute_training()
-        redis_client_sync.set(PREDICTION_COUNTER_KEY, 0)
-        logger.info("Redis counter reset to 0 by background worker")
+        execute_training(0.3, np.random.randint(0, 1000))
 
 @app.on_event("startup")
 async def startup_event():
@@ -152,39 +196,32 @@ async def train(request: TrainRequest):
     raw_count_before = await redis_client_async.get(PREDICTION_COUNTER_KEY)
     verified_count_before = int(raw_count_before) if raw_count_before else 0
 
-    train_samples, test_samples, target_names = await asyncio.to_thread(
+    train_samples, test_samples, target_names, accuracy = await asyncio.to_thread(
         execute_training, request.test_size, request.random_state
     )
-
-    await redis_client_async.set(PREDICTION_COUNTER_KEY, 0)
-    logger.info("Redis counter reset to 0 after manual training")
 
     raw_count_after = await redis_client_async.get(PREDICTION_COUNTER_KEY)
     verified_count_after = int(raw_count_after) if raw_count_after else 0
 
     return {
-        "message": "Model trained and saved successfully.",
+        "message": "Model trained, registered to MLflow, and models pruned successfully.",
         "dataset": "sklearn built-in Iris dataset",
         "target_names": target_names,
         "num_train_samples": train_samples,
         "num_test_samples": test_samples,
-        "pickle_path": PICKLE_MODEL_PATH,
-        "joblib_path": JOBLIB_MODEL_PATH,
+        "new_model_accuracy": accuracy,
         "prediction_count_in_redis_before_training": verified_count_before,
         "prediction_count_in_redis_after_training": verified_count_after,
     }
 
 @app.get("/prediction-count")
 async def get_prediction_count():
-    logger.info("Prediction count endpoint hit")
     count = await redis_client_async.get(PREDICTION_COUNTER_KEY)
     return {"prediction_count_in_redis": int(count) if count else 0}
 
 @app.get("/")
 async def root():
-    logger.info("Root endpoint hit")
     return {"message": "hello world"}
 
 if __name__ == "__main__":
-    logger.info("Starting Uvicorn server")
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
