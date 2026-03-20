@@ -12,6 +12,8 @@ from sklearn.metrics import accuracy_score
 from config import logger, PICKLE_MODEL_PATH, JOBLIB_MODEL_PATH, PREDICTION_COUNTER_KEY
 from database import redis_client_sync
 
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
+
 global_models = {
     "pickle_model": None,
     "joblib_model": None

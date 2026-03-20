@@ -25835,3 +25835,347 @@
 2026-03-18 17:22:23,451 | INFO     | app | Kafka consumer started and listening
 2026-03-18 17:22:37,553 | INFO     | app | Received retrain event from Kafka
 2026-03-18 17:22:37,554 | INFO     | app | Starting training process
+2026-03-20 19:52:16,018 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:52:16,147 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:52:16,159 | INFO     | app | Kafka consumer started and listening
+2026-03-20 19:52:19,301 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:52:19,310 | INFO     | app | Starting training process
+2026-03-20 19:53:03,245 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:53:03,272 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:53:03,301 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:53:03,303 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:53:03,304 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:53:03,304 | INFO     | app | Starting training process
+2026-03-20 19:53:16,659 | INFO     | app | Manual train endpoint hit
+2026-03-20 19:53:16,661 | INFO     | app | Starting training process
+2026-03-20 19:53:21,130 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:53:21,151 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:53:21,183 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:53:21,183 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:53:21,184 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:53:21,184 | INFO     | app | Starting training process
+2026-03-20 19:53:35,698 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:53:35,725 | INFO     | app | Deleting model version 1 with accuracy 0.9777777777777777
+2026-03-20 19:53:35,831 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:53:36,011 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:53:36,012 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:53:40,292 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:53:40,311 | INFO     | app | Deleting model version 2 with accuracy 0.9777777777777777
+2026-03-20 19:53:40,405 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:53:40,433 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:53:40,434 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:53:40,434 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:53:40,434 | INFO     | app | Starting training process
+2026-03-20 19:53:58,253 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:53:58,271 | INFO     | app | Deleting model version 5 with accuracy 0.9777777777777777
+2026-03-20 19:53:58,361 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:53:58,389 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:53:58,390 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:53:58,391 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:53:58,391 | INFO     | app | Starting training process
+2026-03-20 19:54:15,903 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:54:15,921 | INFO     | app | Deleting model version 6 with accuracy 0.9777777777777777
+2026-03-20 19:54:16,011 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:54:16,043 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:54:16,044 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:54:16,044 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:54:16,044 | INFO     | app | Starting training process
+2026-03-20 19:54:33,764 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:54:33,783 | INFO     | app | Deleting model version 7 with accuracy 0.9555555555555556
+2026-03-20 19:54:33,862 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:54:33,890 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:54:33,891 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:54:33,891 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:54:33,892 | INFO     | app | Starting training process
+2026-03-20 19:54:51,858 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:54:51,872 | INFO     | app | Deleting model version 8 with accuracy 0.9777777777777777
+2026-03-20 19:54:51,980 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:54:52,006 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:54:52,007 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:54:52,007 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:54:52,008 | INFO     | app | Starting training process
+2026-03-20 19:55:10,002 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:55:10,019 | INFO     | app | Deleting model version 9 with accuracy 0.9777777777777777
+2026-03-20 19:55:10,112 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:55:10,138 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:55:10,139 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:55:10,139 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:55:10,140 | INFO     | app | Starting training process
+2026-03-20 19:55:28,028 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:55:28,046 | INFO     | app | Deleting model version 10 with accuracy 0.9555555555555556
+2026-03-20 19:55:28,125 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:55:28,152 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:55:28,153 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:55:28,153 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:55:28,153 | INFO     | app | Starting training process
+2026-03-20 19:55:46,252 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:55:46,270 | INFO     | app | Deleting model version 11 with accuracy 0.9777777777777777
+2026-03-20 19:55:46,352 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:55:46,381 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:55:46,382 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:55:46,383 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:55:46,383 | INFO     | app | Starting training process
+2026-03-20 19:56:04,286 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:56:04,304 | INFO     | app | Deleting model version 12 with accuracy 0.9555555555555556
+2026-03-20 19:56:04,382 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:56:04,411 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:56:04,412 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:56:04,413 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:56:04,413 | INFO     | app | Starting training process
+2026-03-20 19:56:22,530 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:56:22,547 | INFO     | app | Deleting model version 13 with accuracy 0.9555555555555556
+2026-03-20 19:56:22,638 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:56:22,668 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:56:22,669 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:56:22,669 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:56:22,669 | INFO     | app | Starting training process
+2026-03-20 19:56:40,478 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:56:40,496 | INFO     | app | Deleting model version 14 with accuracy 0.9777777777777777
+2026-03-20 19:56:40,574 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:56:40,605 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:56:40,606 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:56:40,606 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:56:40,606 | INFO     | app | Starting training process
+2026-03-20 19:56:58,274 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:56:58,293 | INFO     | app | Deleting model version 15 with accuracy 0.9555555555555556
+2026-03-20 19:56:58,379 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:56:58,409 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:56:58,410 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:56:58,410 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:56:58,411 | INFO     | app | Starting training process
+2026-03-20 19:57:16,270 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:57:16,285 | INFO     | app | Deleting model version 16 with accuracy 0.9111111111111111
+2026-03-20 19:57:16,386 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:57:16,413 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:57:16,414 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:57:16,415 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:57:16,415 | INFO     | app | Starting training process
+2026-03-20 19:57:43,524 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:57:43,630 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:57:43,633 | INFO     | app | Kafka consumer started and listening
+2026-03-20 19:57:43,639 | INFO     | app | Manual train endpoint hit
+2026-03-20 19:57:43,641 | INFO     | app | Starting training process
+2026-03-20 19:58:07,509 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:58:07,509 | INFO     | app | Starting training process
+2026-03-20 19:58:20,687 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:58:20,701 | INFO     | app | Deleting model version 3 with accuracy 1.0
+2026-03-20 19:58:20,785 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:58:20,812 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:58:20,814 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:58:21,263 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:58:21,273 | INFO     | app | Deleting model version 18 with accuracy 0.9333333333333333
+2026-03-20 19:58:21,359 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:58:21,394 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:58:21,395 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:58:21,396 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:58:21,396 | INFO     | app | Starting training process
+2026-03-20 19:58:39,042 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:58:39,051 | INFO     | app | Deleting model version 19 with accuracy 0.9555555555555556
+2026-03-20 19:58:39,171 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:58:39,200 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:58:39,201 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:58:39,201 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:58:39,201 | INFO     | app | Starting training process
+2026-03-20 19:58:57,331 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:58:57,342 | INFO     | app | Deleting model version 20 with accuracy 0.9777777777777777
+2026-03-20 19:58:57,436 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:58:57,462 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:58:57,463 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:58:57,464 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:58:57,464 | INFO     | app | Starting training process
+2026-03-20 19:59:15,309 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:59:15,322 | INFO     | app | Deleting model version 21 with accuracy 0.9555555555555556
+2026-03-20 19:59:15,417 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:59:15,460 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:59:15,461 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:59:15,462 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:59:15,462 | INFO     | app | Starting training process
+2026-03-20 19:59:33,392 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:59:33,402 | INFO     | app | Deleting model version 22 with accuracy 0.9555555555555556
+2026-03-20 19:59:33,513 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:59:33,544 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:59:33,545 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:59:33,546 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:59:33,546 | INFO     | app | Starting training process
+2026-03-20 19:59:51,636 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 19:59:51,646 | INFO     | app | Deleting model version 23 with accuracy 0.9333333333333333
+2026-03-20 19:59:51,748 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 19:59:51,778 | INFO     | app | Models loaded successfully into memory
+2026-03-20 19:59:51,779 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 19:59:51,779 | INFO     | app | Received retrain event from Kafka
+2026-03-20 19:59:51,779 | INFO     | app | Starting training process
+2026-03-20 20:00:09,754 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:00:09,763 | INFO     | app | Deleting model version 24 with accuracy 0.9111111111111111
+2026-03-20 20:00:09,866 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:00:09,894 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:00:09,895 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:00:09,895 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:00:09,895 | INFO     | app | Starting training process
+2026-03-20 20:00:28,147 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:00:28,160 | INFO     | app | Deleting model version 25 with accuracy 0.9777777777777777
+2026-03-20 20:00:28,255 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:00:28,292 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:00:28,293 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:00:28,293 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:00:28,294 | INFO     | app | Starting training process
+2026-03-20 20:00:50,804 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:00:50,819 | INFO     | app | Deleting model version 26 with accuracy 0.9555555555555556
+2026-03-20 20:00:50,951 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:00:50,992 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:00:50,994 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:00:50,995 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:00:50,995 | INFO     | app | Starting training process
+2026-03-20 20:01:21,264 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:01:21,276 | INFO     | app | Deleting model version 27 with accuracy 0.9555555555555556
+2026-03-20 20:01:21,370 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:01:21,399 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:01:21,399 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:01:21,400 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:01:21,400 | INFO     | app | Starting training process
+2026-03-20 20:01:39,465 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:01:39,474 | INFO     | app | Deleting model version 28 with accuracy 0.9555555555555556
+2026-03-20 20:01:39,560 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:01:39,593 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:01:39,594 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:01:39,594 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:01:39,595 | INFO     | app | Starting training process
+2026-03-20 20:01:57,615 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:01:57,624 | INFO     | app | Deleting model version 29 with accuracy 0.9777777777777777
+2026-03-20 20:01:57,723 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:01:57,752 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:01:57,753 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:01:57,753 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:01:57,754 | INFO     | app | Starting training process
+2026-03-20 20:02:15,558 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:02:15,567 | INFO     | app | Deleting model version 30 with accuracy 0.9111111111111111
+2026-03-20 20:02:15,646 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:02:15,671 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:02:15,672 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:02:15,673 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:02:15,673 | INFO     | app | Starting training process
+2026-03-20 20:02:27,226 | INFO     | app | Manual train endpoint hit
+2026-03-20 20:02:27,227 | INFO     | app | Starting training process
+2026-03-20 20:02:34,062 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:02:34,072 | INFO     | app | Deleting model version 31 with accuracy 0.9555555555555556
+2026-03-20 20:02:34,162 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:02:34,195 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:02:34,196 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:02:34,196 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:02:34,196 | INFO     | app | Starting training process
+2026-03-20 20:02:46,663 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:02:46,672 | INFO     | app | Deleting model version 4 with accuracy 1.0
+2026-03-20 20:02:46,760 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:02:46,792 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:02:46,793 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:02:53,291 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:02:53,301 | INFO     | app | Deleting model version 33 with accuracy 0.9777777777777777
+2026-03-20 20:02:53,416 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:02:53,443 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:02:53,444 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:02:53,444 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:02:53,444 | INFO     | app | Starting training process
+2026-03-20 20:03:11,694 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:03:11,704 | INFO     | app | Deleting model version 34 with accuracy 0.9555555555555556
+2026-03-20 20:03:11,786 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:03:11,815 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:03:11,816 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:03:11,816 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:03:11,816 | INFO     | app | Starting training process
+2026-03-20 20:03:30,295 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:03:30,304 | INFO     | app | Deleting model version 35 with accuracy 0.9777777777777777
+2026-03-20 20:03:30,391 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:03:30,419 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:03:30,420 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:03:30,420 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:03:30,420 | INFO     | app | Starting training process
+2026-03-20 20:03:48,767 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:03:48,777 | INFO     | app | Deleting model version 36 with accuracy 0.9333333333333333
+2026-03-20 20:03:48,872 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:03:48,899 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:03:48,900 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:03:48,901 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:03:48,901 | INFO     | app | Starting training process
+2026-03-20 20:04:06,992 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:04:07,002 | INFO     | app | Deleting model version 37 with accuracy 0.9777777777777777
+2026-03-20 20:04:07,113 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:04:07,143 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:04:07,145 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:04:07,145 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:04:07,145 | INFO     | app | Starting training process
+2026-03-20 20:04:25,410 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:04:25,421 | INFO     | app | Deleting model version 38 with accuracy 0.9111111111111111
+2026-03-20 20:04:25,506 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:04:25,541 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:04:25,542 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:04:25,542 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:04:25,543 | INFO     | app | Starting training process
+2026-03-20 20:04:43,930 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:04:43,941 | INFO     | app | Deleting model version 39 with accuracy 0.9111111111111111
+2026-03-20 20:04:44,027 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:04:44,056 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:04:44,057 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:04:44,057 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:04:44,057 | INFO     | app | Starting training process
+2026-03-20 20:05:02,129 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:05:02,139 | INFO     | app | Deleting model version 40 with accuracy 0.9111111111111111
+2026-03-20 20:05:02,256 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:05:02,286 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:05:02,287 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:05:02,288 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:05:02,288 | INFO     | app | Starting training process
+2026-03-20 20:05:20,520 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:05:20,530 | INFO     | app | Deleting model version 41 with accuracy 0.8666666666666667
+2026-03-20 20:05:20,639 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:05:20,666 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:05:20,667 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:05:20,668 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:05:20,668 | INFO     | app | Starting training process
+2026-03-20 20:05:39,062 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:05:39,072 | INFO     | app | Deleting model version 42 with accuracy 0.9333333333333333
+2026-03-20 20:05:39,177 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:05:39,203 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:05:39,204 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:05:39,204 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:05:39,205 | INFO     | app | Starting training process
+2026-03-20 20:05:57,484 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:05:57,493 | INFO     | app | Deleting model version 43 with accuracy 0.9333333333333333
+2026-03-20 20:05:57,632 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:05:57,670 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:05:57,671 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:05:57,671 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:05:57,672 | INFO     | app | Starting training process
+2026-03-20 20:06:15,715 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:06:15,728 | INFO     | app | Deleting model version 44 with accuracy 0.9555555555555556
+2026-03-20 20:06:15,859 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:06:15,896 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:06:15,898 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:06:15,898 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:06:15,898 | INFO     | app | Starting training process
+2026-03-20 20:06:34,485 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:06:34,495 | INFO     | app | Deleting model version 45 with accuracy 0.9777777777777777
+2026-03-20 20:06:34,599 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:06:34,628 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:06:34,629 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:06:34,630 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:06:34,630 | INFO     | app | Starting training process
+2026-03-20 20:06:52,603 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:06:52,612 | INFO     | app | Deleting model version 46 with accuracy 0.9333333333333333
+2026-03-20 20:06:52,718 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:06:52,744 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:06:52,745 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:06:52,745 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:06:52,745 | INFO     | app | Starting training process
+2026-03-20 20:07:10,800 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:07:10,810 | INFO     | app | Deleting model version 47 with accuracy 0.9555555555555556
+2026-03-20 20:07:10,899 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:07:10,926 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:07:10,927 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:07:10,927 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:07:10,928 | INFO     | app | Starting training process
+2026-03-20 20:07:29,616 | INFO     | app | Model logged and registered in MLflow
+2026-03-20 20:07:29,625 | INFO     | app | Deleting model version 48 with accuracy 0.9555555555555556
+2026-03-20 20:07:29,714 | INFO     | app | Loading local models from disk into memory cache
+2026-03-20 20:07:29,745 | INFO     | app | Models loaded successfully into memory
+2026-03-20 20:07:29,746 | INFO     | app | Redis counter reset to 0 after training
+2026-03-20 20:07:29,747 | INFO     | app | Received retrain event from Kafka
+2026-03-20 20:07:29,747 | INFO     | app | Starting training process

@@ -9,4 +9,7 @@ venv/
 project_1.ipynb
 dataset.csv
 
-
+app/mlruns/
+app/mlruns/
+app/app.log
+app/mlflow.db 
